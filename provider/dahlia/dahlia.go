@@ -38,5 +38,6 @@ func New() *DAHLIA {
 }
 
 func init() {
-	provider.Register(Name, New)
+	// 不查这个厂商，太慢
+	// provider.Register(Name, New)
 }

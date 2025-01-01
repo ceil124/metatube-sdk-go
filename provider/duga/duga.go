@@ -254,5 +254,6 @@ func (duga *DUGA) SearchMovie(keyword string) (results []*model.MovieSearchResul
 }
 
 func init() {
-	provider.Register(Name, New)
+	// 不查这个厂商，不准确
+	// provider.Register(Name, New)
 }

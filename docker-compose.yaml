@@ -1,6 +1,6 @@
 services:
   metatube:
-    image: metatube/metatube-server:latest
+    image: ceil124/metatube-server:latest
     container_name: metatube
     ports:
       - "8080:8080"
@@ -17,6 +17,8 @@ services:
   postgres:
     image: postgres:15-alpine
     container_name: metatube-postgres
+    ports:
+      - "15432:5432"
     restart: unless-stopped
     environment:
       - POSTGRES_USER=metatube
@@ -25,7 +27,7 @@ services:
     volumes:
       - ./db:/var/lib/postgresql/data
       - run:/var/run
-    command: "-c TimeZone=Asia/Shanghai -c log_timezone=Asia/Shanghai -c listen_addresses='' -c unix_socket_permissions=0777"
+    command: "-c TimeZone=Asia/Shanghai -c log_timezone=Asia/Shanghai -c listen_addresses='*' -c unix_socket_permissions=0777"
 
 volumes:
   run:

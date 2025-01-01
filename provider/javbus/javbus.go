@@ -211,5 +211,6 @@ func (bus *JavBus) SearchMovie(keyword string) (results []*model.MovieSearchResu
 }
 
 func init() {
-	provider.Register(Name, New)
+	// 不查这个厂商，查出来奇奇怪怪
+	// provider.Register(Name, New)
 }
